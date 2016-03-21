@@ -13,12 +13,14 @@ class ShortUrlsController < ApplicationController
     @short_url = ShortUrl.find(params[:id])
     # byebug
     # "https://mynewurlshortener.herokuapp.com/#{@short_url.id}"
-    http = "http://"
-    if @short_url.original.include? http
-      redirect_to @short_url.original
-    else
-      redirect_to http + @short_url.original
-    end
+    # http = "http://"
+    # if @short_url.original.include? http
+    #   redirect_to @short_url.original
+    # else
+    #   redirect_to http + @short_url.original
+    # end
+    short = "localhost:3000/#{@short_url.id}"
+    redirect_to @short_url.original
   end
 
   # GET /short_urls/new
